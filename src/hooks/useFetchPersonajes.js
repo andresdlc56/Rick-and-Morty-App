@@ -1,8 +1,14 @@
 import { useEffect } from 'react';
-import { getPersonajes } from '../helpers/getPersonajes';
+import { useDispatch } from 'react-redux';
+
+import { startLoadingPersonajes } from '../store/personajes';
 
 export const useFetchPersonajes = () => {
+
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        console.log('Hola Mundo');
+        //Disparando Thunk para cargar personajes
+        dispatch(startLoadingPersonajes());
     }, []);
 }

@@ -7,12 +7,13 @@ export const personajesSlice = createSlice({
         results: null
     },
     reducers: {
-        increment: (state, /* action */ ) => {
-            state.counter += 1;
+        setPersonajes: (state, action) => {
+            state.info = action.payload.info;
+            state.results = action.payload.results;
         },
     },
 });
 
 
 // Action creators are generated for each case reducer function
-export const { increment } = personajesSlice.actions;
+export const { setPersonajes } = personajesSlice.actions;
