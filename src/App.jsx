@@ -1,15 +1,24 @@
-import { useEffect } from "react"
-import { Navbar } from "./components/Navbar"
-import { useFetchPersonajes } from "./hooks"
+import { useSelector } from "react-redux";
+import { Navbar, Personajes } from "./components";
+import { useFetchPersonajes } from "./hooks";
 
 function App() {
 
-    //Cargando personajes (Custom Hook)
-    useFetchPersonajes();
+  //Obteniendo el state "personajes" desde el store
+  const { results } = useSelector(state => state.personajes);
 
-    return (
-      <Navbar title={ 'Rick and Morty App' } />
-    )
+  //Cargando personajes (Custom Hook)
+  useFetchPersonajes();
+
+  return (
+    <>
+      <Navbar title={"Rick and Morty App"} />
+
+      <div className="container mt-5">
+        <Personajes listPersonajes={ results } /> 
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;

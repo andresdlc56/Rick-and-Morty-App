@@ -4,7 +4,7 @@ export const personajesSlice = createSlice({
     name: 'personajes',
     initialState: {
         info: null,
-        results: null
+        results: []
     },
     reducers: {
         setPersonajes: (state, action) => {
