@@ -1,4 +1,4 @@
-import { getPersonajes } from "../../helpers/getPersonajes"
+import { getPersonajes, cargarPaginaSiguiente } from "../../helpers";
 import { setPersonajes } from "./personajesSlice";
 
 export const startLoadingPersonajes = () => {
@@ -9,5 +9,16 @@ export const startLoadingPersonajes = () => {
 
         //Cambiando el state en el store
         dispatch( setPersonajes(personajes) );
+    }
+}
+
+export const nextPage = () => {
+    return async(dispatch, getState) => {
+        const { info } = getState().personajes;
+        
+        const data = await cargarPaginaSiguiente(info);
+        //console.log(data);
+
+        dispatch( setPersonajes(data) );
     }
 }

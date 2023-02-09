@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Navbar, Personajes } from "./components";
+import { Navbar, Pagination, Personajes } from "./components";
 import { useFetchPersonajes } from "./hooks";
 
 function App() {
@@ -15,7 +15,9 @@ function App() {
       <Navbar title={"Rick and Morty App"} />
 
       <div className="container mt-5">
-        <Personajes listPersonajes={ results } /> 
+        <Pagination />
+          <Personajes listPersonajes={ results } /> 
+        <Pagination />
       </div>
     </>
   );

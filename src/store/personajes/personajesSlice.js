@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const personajesSlice = createSlice({
     name: 'personajes',
     initialState: {
-        info: null,
+        info: {},
         results: []
     },
     reducers: {
