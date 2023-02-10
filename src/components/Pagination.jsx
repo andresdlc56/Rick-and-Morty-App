@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { nextPage } from "../store/personajes";
+import { nextPage, prevPage } from "../store/personajes";
 
 export const Pagination = () => {
 
@@ -9,6 +9,7 @@ export const Pagination = () => {
 
     const handlePrevious = () => {
         console.log('Previous');
+        dispatch( prevPage() );
     }
 
     const handleNext = () => {
